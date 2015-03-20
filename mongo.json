@@ -1,4 +1,7 @@
 {
-  "host": "localhost",
-  "name": "test-nmr"
+  "host": "localhost"
+  "name": "test-nmr",
+  "username": null,
+  "password": null,
+  "port": 27017
 }
