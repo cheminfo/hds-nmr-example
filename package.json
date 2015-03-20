@@ -1,0 +1,24 @@
+{
+  "name": "hds-nmr-example",
+  "version": "1.0.0",
+  "description": "Example of hds project to store NMR spectra",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cheminfo/hds-nmr-example.git"
+  },
+  "author": "Michaël Zasso",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cheminfo/hds-nmr-example/issues"
+  },
+  "homepage": "https://github.com/cheminfo/hds-nmr-example",
+  "private": true,
+  "dependencies": {
+    "bluebird": "^2.9.14",
+    "hds": "^0.6.0"
+  }
+}
