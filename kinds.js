@@ -5,10 +5,12 @@ var Kind = hds.Kind;
 
 Kind.create('experiment', {
     id: String,
+	keywords: [String],
     name: String
 });
 
 var jcamp = new Kind.File({
+	filename: 'nmr.jdx',
     mimetype: 'chemical/x-jcamp-dx'
 });
 

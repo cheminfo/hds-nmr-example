@@ -15,7 +15,11 @@ function search() {
     Entry.findOne('experiment', {
         id: 'abc123'
     }).exec().then(function (exp) {
-        return exp.getChildren({kind: 'nmr'});
+		
+		if (exp) {
+        	return exp.getChildren({kind: 'nmr'});
+		}
+		
     }).then(function (children) {
 
         var nmr = children[0];

@@ -7,20 +7,30 @@ var Entry = hds.Entry;
 // Load kinds
 require('./kinds');
 
-hds.init({
+var connection = hds.init({
     database: require('./mongo.json')
-}).then(function () {
-    return hds.dropDatabase()
-}).then(startImport);
+});
+
+connection.then(onSuccess, onError);
+
+function onSuccess() {
+	hds.dropDatabase().then(startImport);
+}
+
+function onError(e) {
+	console.error(e);
+	process.exit(1);
+}
 
 function startImport() {
 
     var experiment = Entry.create('experiment', {
-        id: 'abc123',
-        name: 'myExperiment'
+        id: 'abc123'
     }, {
         owner: 'test@cheminfo.org'
     });
+	
+	experiment.name = 'myExperiment';
 
     experiment.save().then(saveNmr);
 
@@ -45,8 +55,10 @@ function startImport() {
                 filename: 'nmr2.jdx'
             }
         });
+		
+		var saveChildren = [nmr1.save(), nmr2.save()];
 
-        Promise.all([nmr1.save(), nmr2.save()])
+        Promise.all(saveChildren)
             .then(function () {
                 console.log('Everything saved');
                 process.exit(0);
