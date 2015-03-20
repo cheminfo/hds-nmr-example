@@ -7,9 +7,7 @@ var Entry = hds.Entry;
 require('./kinds');
 
 hds.init({
-    database: {
-        name: 'test-nmr'
-    }
+    database: require('./mongo.json')
 }).then(search);
 
 function search() {
