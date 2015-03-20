@@ -11,6 +11,8 @@ hds.init({
     database: {
         name: 'test-nmr'
     }
+}).then(function () {
+    return hds.dropDatabase()
 }).then(startImport);
 
 function startImport() {
